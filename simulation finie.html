@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Entanglement Simulation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            font-size: 24px;
+            text-align: center;
+            width: 100%;
+            color: white;
+        }
+
+        .photon {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            transition: background-color 0.5s ease, transform 0.5s ease;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+        }
+
+        #photon-A { top: 10%; left: 10%; }
+        #photon-B { top: 20%; left: 10%; }
+        #photon-C { top: 30%; left: 10%; }
+        #photon-D { top: 40%; left: 10%; }
+        #photon-E { top: 50%; left: 10%; }
+        #photon-F { top: 60%; left: 10%; }
+        #photon-G { top: 70%; left: 10%; }
+        #photon-H { top: 80%; left: 10%; }
+
+        @keyframes moveRight {
+            0% { left: var(--start-left); }
+            100% { left: 90%; }
+        }
+
+        @keyframes tremble {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(2px, 2px); }
+            50% { transform: translate(-2px, -2px); }
+            75% { transform: translate(2px, -2px); }
+        }
+
+        .alert {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,0,0.8), rgba(255,255,0,0));
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            box-shadow: 0 0 30px rgba(255, 255, 0, 0.9);
+            z-index: 1;
+        }
+
+        .alert::before {
+            content: '!';
+            font-size: 48px;
+            color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+        }
+
+        .flashing-box {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: rgba(255, 0, 0, 0.7);
+            border: 2px solid white;
+            display: none;
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Boîte d'information améliorée */
+        .info-box {
+            position: absolute;
+            top: 140px;
+            left: 10%; /* Positionnée sur le côté gauche */
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fond clair pour une meilleure lisibilité */
+            border: 2px solid #ccc;
+            display: none;
+            font-size: 16px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">ESSAYEZ D'INTERCEPTER UN PHOTON</h1>
+    <div class="photon" id="photon-A">A</div>
+    <div class="photon" id="photon-B">B</div>
+    <div class="photon" id="photon-C">C</div>
+    <div class="photon" id="photon-D">D</div>
+    <div class="photon" id="photon-E">E</div>
+    <div class="photon" id="photon-F">F</div>
+    <div class="photon" id="photon-G">G</div>
+    <div class="photon" id="photon-H">H</div>
+    <div class="alert" id="alert-sign"></div>
+    <div class="flashing-box" id="flashing-message">CONNECTION INTERROMPUE</div>
+    <!-- Nouvelle info-box avec un message retravaillé -->
+    <div class="info-box" id="info-box">
+        <p>
+            Observation du photon :<br>
+            En étant observé, le photon adopte un état précis – rouge ou bleu – plutôt que de rester dans son état indéfini (violet). La connexion quantique est ainsi interrompue.
+        </p>
+    </div>
+
+    <script>
+        const photons = [
+            document.getElementById('photon-A'),
+            document.getElementById('photon-B'),
+            document.getElementById('photon-C'),
+            document.getElementById('photon-D'),
+            document.getElementById('photon-E'),
+            document.getElementById('photon-F'),
+            document.getElementById('photon-G'),
+            document.getElementById('photon-H')
+        ];
+        const alertSign = document.getElementById('alert-sign');
+        const title = document.getElementById('title');
+        const flashingMessage = document.getElementById('flashing-message');
+        const infoBox = document.getElementById('info-box');
+
+        // Démarrer les animations initiales
+        function startAnimations() {
+            photons.forEach(photon => {
+                const computedLeft = window.getComputedStyle(photon).left;
+                photon.style.setProperty('--start-left', computedLeft);
+                photon.style.animation = 'moveRight 8s linear infinite';
+            });
+        }
+
+        // Arrêter les animations et conserver la position actuelle
+        function stopAnimations() {
+            photons.forEach(photon => {
+                const computedLeft = window.getComputedStyle(photon).left;
+                photon.style.animation = 'none';
+                photon.style.left = computedLeft;
+            });
+        }
+
+        // Gérer l'événement de clic
+        function handleClick(event) {
+            stopAnimations();
+
+            const colors = ['red', 'blue'];
+            photons.forEach((photon, index) => {
+                setTimeout(() => {
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    photon.style.backgroundColor = color;
+                    photon.style.animation = 'tremble 0.1s infinite';
+                }, index * 500);
+            });
+
+            setTimeout(() => {
+                photons.forEach(photon => {
+                    photon.style.animation = 'none';
+                });
+            }, photons.length * 500);
+
+            alertSign.style.display = 'block';
+            title.textContent = "Vous avez défini l'état du photon ! ";
+
+            setTimeout(() => {
+                flashingMessage.style.display = 'block';
+                infoBox.style.display = 'block';
+            }, 1500);
+
+            setTimeout(() => {
+                flashingMessage.style.display = 'none';
+                infoBox.style.display = 'none';
+                resetSimulation();
+            }, 8000);
+        }
+
+        // Réinitialiser la simulation
+        function resetSimulation() {
+            photons.forEach(photon => {
+                photon.style.backgroundColor = 'purple';
+            });
+
+            startAnimations();
+
+            alertSign.style.display = 'none';
+            title.textContent = 'ESSAYEZ D\'INTERCEPTER UN PHOTON';
+            flashingMessage.style.display = 'none';
+        }
+
+        // Démarrer les animations initiales
+        startAnimations();
+
+        // Ajouter l'écouteur d'événement de clic pour chaque photon
+        photons.forEach(photon => photon.addEventListener('click', handleClick));
+    </script>
+</body>
+</html>
