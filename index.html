@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QubitCare</title>
+    <link rel="icon" href="aycha/logo_qubitcare.png" type="image/png">
+    <link rel="stylesheet" href="stylax.css">
+    <script src="interactive.js" defer></script>
+
+</head>
+<body>
+
+<div class="background-container">
+    <div class="background bg4"></div>
+    <div class="background bg1"></div>
+    <div class="background bg2"></div>
+    <div class="background bg3"></div>
+    <div class="background bg5"></div>
+</div>
+
+<div class="background-title" data-bg="0" id="backgroundTitle0">Récéption</div>
+<div class="sdg-container" data-bg="0" id="sdg0">
+
+    <img src="/ODD/SDG Wheel_Transparent_WEB.png" alt="SDG Logo" class="sdg-logo">
+    <div class="sdg-popup">
+        <div class="popup-content">
+            <img src="/ODD/E_GIF_07.gif" alt="Popup Logo" class="popup-logo">
+            <div class="popup-text">
+                <div class="popup-title">Objectifs du développement durable</div>
+                <p>Ici, vous trouverez l'objectif du développement durable visé dans chaque étage</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="background-title" data-bg="1" id="backgroundTitle1">Toit</div>
+<div class="sdg-container" data-bg="1" id="sdg0">
+
+    <img src="/ODD/SDG Wheel_Transparent_WEB.png" alt="SDG Logo" class="sdg-logo">
+    <div class="sdg-popup">
+        <div class="popup-content">
+            <img src="/ODD/E_GIF_07.gif" alt="Popup Logo" class="popup-logo">
+            <div class="popup-text">
+                <div class="popup-title">Énergie propre et abordable</div>
+                <p>Nos panneaux solaires quantiques exploitent la lumière avec une efficacité inégalée, réduisant ainsi l’empreinte carbone de nos infrastructures.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="background-title" data-bg="2" id="backgroundTitle2">Salle de communication</div>
+<div class="sdg-container" data-bg="2" id="sdg1">
+
+    <img src="/ODD/SDG Wheel_Transparent_WEB.png" alt="SDG Logo" class="sdg-logo">
+    <div class="sdg-popup">
+        <div class="popup-content">
+            <img src="/ODD/E_GIF_09.gif" alt="Popup Logo" class="popup-logo">
+            <div class="popup-text">
+                <div class="popup-title">Infrastructures résilientes et innovation technologique</div>
+                <p>La communication quantique garantit une protection totale des données médicales</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="background-title" data-bg="3" id="backgroundTitle3">Chambre de capteur</div>
+<div class="sdg-container" data-bg="3" id="sdg2">
+
+    <img src="/ODD/SDG Wheel_Transparent_WEB.png" alt="SDG Logo" class="sdg-logo">
+    <div class="sdg-popup">
+        <div class="popup-content">
+            <img src="/ODD/E_GIF_03.gif" alt="Popup Logo" class="popup-logo">
+            <div class="popup-text">
+                <div class="popup-title">Santé et bien-être pour tous</div>
+                <p>Grâce aux capteurs quantiques, nous détectons les maladies bien avant leur apparition clinique, offrant ainsi des soins plus rapides et plus efficaces.
+                    Infrastructures résilientes et innovation technologique </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="background-title" data-bg="4" id="backgroundTitle4">Sous-sol</div>
+<div class="sdg-container" data-bg="4" id="sdg3">
+
+    <img src="/ODD/SDG Wheel_Transparent_WEB.png" alt="SDG Logo" class="sdg-logo">
+    <div class="sdg-popup">
+        <div class="popup-content">
+            <img src="/ODD/E_GIF_09.gif" alt="Popup Logo" class="popup-logo">
+            <div class="popup-text">
+                <div class="popup-title">Infrastructures résilientes et innovation technologique</div>
+                <p>Nos gravimètres assurent la stabilité des bâtiments hospitaliers</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group">
+    <button onclick="changeBackground(1)">Toit</button>
+    <button onclick="changeBackground(2)">Étage 2</button>
+    <button onclick="changeBackground(3)">Étage 1</button>
+    <button onclick="changeBackground(0)">RDC</button>
+    <button onclick="changeBackground(4)">Sous-sol</button>
+</div>
+
+<!-- HOTSPOTS -->
+
+<!-- Acceuil -->
+<div class="hotspot" data-bg="0" id="acc_av">
+    <div class="popup">
+        <h3>Avantages</h3>
+        <p>Dans ses onglets se trouveront les avantages de chaque technologie appliquée dans chaque salle de l’hôpital</p>
+    </div>
+</div>
+
+<div class="dark-blue-hotspot" data-bg="0" id="deff">
+    <div class="definition">
+        <h3>Definitions</h3>
+        <p>Ces points contiendront des définitions utiles à connaitre lors de votre parcours au sein de l’hôpital</p>
+    </div>
+</div>
+
+<div class="hotspot-schematic" id="acc_sch" data-bg="0" data-id="schematic5" onclick="showSchematic('schematic5')">
+    <div class="schematic-preview">
+        <h3>Schémas</h3>
+        <p>Cliquer pour ouvrir les schémas</p>
+    </div>
+</div>
+
+<div id="schematic5" class="schematic-full">
+    <div class="schematic-content">
+        <button class="nav-arrow left" onclick="previousStep('schematic5')">←</button>
+
+        <div class="step-container">
+            <div class="step" data-step="1">
+                <img src="/acceuil/schemaaatisation.png" alt="Step 1">
+                <p class="step-description">Vous pourrez défiler dans les schémas relatifs à chaque partie à l'aide des flèches</p>
+            </div>
+            <div class="step" data-step="2">
+                <img src="/acceuil/ampouleee.png" alt="Step 2">
+                <p class="step-description">Nous espérons que nos schémas réalisés avec amour vous seront utiles</p>
+            </div>
+        </div>
+
+        <button class="nav-arrow right" onclick="nextStep('schematic5')">→</button>
+    </div>
+    <button class="close-btn" onclick="hideSchematic('schematic5')">Close</button>
+</div>
+
+<!-- Hotspots for Background 1 -->
+
+<div class="hotspot" data-bg="1" id="pan1">
+    <div class="popup">
+        <h3>Réduction de l’empreinte carbone</h3>
+        <p>L’énergie solaire alimente QubitCare, lui offrant une autonomie énergétique et limitant l’usage des énergies fossiles</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="1" id="pan2">
+    <div class="popup">
+        <h3>Production économe et adaptable</h3>
+        <p>Les cellules solaires quantiques sont moins coûteuses à produire et peuvent être intégrées sur différentes surfaces des infrastructures</p>
+    </div>
+</div>
+
+<div class="dark-blue-hotspot" data-bg="1" id="test">
+    <div class="definition">
+        <h3>Point quantique </h3>
+        <p>Une particule semi-conductrice de la taille d'un nanomètre, qui émet de la lumière de longueurs d'onde spécifiques si de l'énergie lui est appliquée</p>
+    </div>
+</div>
+
+<div class="dark-blue-hotspot" data-bg="1" id="QDSCs">
+    <div class="definition">
+        <h3>Cellules solaires à points quantiques</h3>
+        <p>Cellules photovoltaïques exploitant les propriétés des points quantiques pour améliorer l’absorption et l’efficacité de la conversion de l'énergie lumineuse, dépassant ainsi les limites des technologies solaires classiques</p>
+    </div>
+</div>
+
+<div class="hotspot-schematic" id="charbel_sch" data-bg="1" data-id="schematic4" onclick="showSchematic('schematic4')">
+    <div class="schematic-preview">
+        <h3>Fonctionnemnt</h3>
+        <p>Cliquer pour ouvrir les schémas</p>
+    </div>
+</div>
+
+<div id="schematic4" class="schematic-full">
+    <div class="schematic-content">
+        <button class="nav-arrow left" onclick="previousStep('schematic4')">←</button>
+        
+        <div class="step-container">
+            <div class="step" data-step="1">
+                <img src="/Charbel/preparation_des_pts_quantiques.png" alt="Step 1">
+                <p class="step-description">Une simple préparation chimique permet de former des points quantiques dont la taille et le spectre d'absorption sont contrôlés en ajustant température et durée</p>
+            </div>
+            <div class="step" data-step="2">
+                <img src="/Charbel/application_pt_quantiques.png" alt="Step 2">
+                <p class="step-description">À l'aide d'un processus simple, les points quantiques sont étalés pour former une cellule solaire</p>
+            </div>
+            <div class="step" data-step="3">
+                <img src="/Charbel/Charbel_graph.png" alt="Step 3">
+                <p class="step-description">Les points quantiques permettent de capter la majorité du spectre d'émission solaire grâce à leur spécificité hors norme. En fait en combinant plusieurs points quantiques dans des cellules tandemes nous surpassons les panneaux standards en silicium</p>
+            </div>
+        </div>
+        <button class="nav-arrow right" onclick="nextStep('schematic4')">→</button>
+    </div>
+    <button class="close-btn" onclick="hideSchematic('schematic4')">Close</button>
+</div>
+
+<!-- Hotspots for Background 2 -->
+<div class="dark-blue-hotspot" data-bg="2" id="communication_quantique">
+    <div class="definition">
+        <h3>Communication quantique</h3>
+        <p>Mode de transmission de l'information exploitant l'intrication et la superposition quantique pour garantir une sécurité inégalable et une détection instantanée des tentatives d'interception.
+    </div>
+</div>
+
+<div class="hotspot" data-bg="2" id="Paul-av1">
+    <div class="popup">
+        <h3>Protection inviolable</h3>
+        <p>Grâce à l’intrication quantique, toute tentative d’interception des données modifie leur état, rendant le piratage impossible</p>
+    </div>
+</div>
+<div class="hotspot" data-bg="2" id="Paul-av2">
+    <div class="popup">
+        <h3>Transmission ultra-rapide</h3>
+        <p>Les informations médicales sont échangées en temps réel entre médecins et chercheurs, améliorant les décisions thérapeutiques</p>
+    </div>
+</div>
+<div class="hotspot" data-bg="2" id="Paul-av3">
+    <div class="popup">
+        <h3>Confidentialité garantie</h3>
+        <p>La communication quantique empêche toute fuite de données sensibles, renforçant la confiance des patients et des professionnels de santé</p>
+    </div>
+</div>
+<div class="hotspot" data-bg="2" id="Paul-av4">
+    <div class="popup">
+        <h3>Avancée pour la télémédecine</h3>
+        <p>Les consultations et chirurgies à distance deviennent plus sûres grâce à un cryptage quantique infaillible</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="2" id="simulation-btn">
+    <button onclick="window.open('simulation finie.html', '_blank')">
+        Ouvrir la simulation
+    </button>
+</div>
+
+<div class="hotspot-schematic" id="paul_sch" data-bg="2" data-id="schematic3" onclick="showSchematic('schematic3')">
+
+    <div class="schematic-preview">
+        <h3>Fonctionnemnt</h3>
+        <p>Cliquer pour ouvrir les schémas</p>
+    </div>
+</div>
+
+<div id="schematic3" class="schematic-full">
+    <div class="schematic-content">
+        <button class="nav-arrow left" onclick="previousStep('schematic3')">←</button>
+        
+        <div class="step-container">
+            <div class="step" data-step="1">
+                <img src="/paul/qbit.jpg" alt="Step 1">
+                <p class="step-description">Traditionnellement, les données sont transmises via des bits (0 et 1). La physique quantique révolutionne ce concept en introduisant les qubits, permettant un transfert d'information plus sécurisé et efficace. (d’où le nom de notre hôpital)</p>
+            </div>
+            <div class="step" data-step="2">
+                <img src="/paul/2 2 2.jpg" alt="Step 2">
+                <p class="step-description">La physique quantique exploite la superposition des photons. Un photon non observé peut être dans plusieurs états simultanément, ne définissant une position fixe que lors de son observation.</p>
+            </div>
+            <div class="step" data-step="3">
+                <img src="/paul/2 2 2.jpg" alt="Step 3">
+                <p class="step-description">L'intrication quantique permet de lier des photons de manière telle que l'état de l'un influence instantanément l'état de l'autre, même à distance. Si une tentative d'interception survient, toute la chaîne est affectée, alertant ainsi l'émetteur et le récepteur d'une possible intrusion.</p>
+            </div>
+        </div>
+
+        <button class="nav-arrow right" onclick="nextStep('schematic3')">→</button>
+    </div>
+    <button class="close-btn" onclick="hideSchematic('schematic3')">Close</button>
+</div>
+
+<!-- Hotspots for Background 3 -->
+<div class="dark-blue-hotspot" data-bg="3" id="superposition-scanner">
+    <div class="definition">
+        <h3>Capteur quantique</h3>
+        <p>Instrument de mesure qui a recourt à des phénomènes de nature quantique pour mesurer une grandeur physique (ici, l’intensité lumineuse)</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="3" id="Rita_av1">
+    <div class="popup">
+        <h3>Détection ultra-sensible</h3>
+        <p>Détection des biomarqueurs à des concentrations infimes, permettant un diagnostic précoce du cancer et des maladies cardiovasculaires</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="3" id="Rita_av2">
+    <div class="popup">
+        <h3>Méthodes non invasives</h3>
+        <p>Grâce aux capteurs magnétiques et optiques, nous réduisons le recours aux biopsies et examens lourds, favorisant un suivi médical plus confortable</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="3" id="Rita_av3">
+    <div class="popup">
+        <h3>Réduction des coûts de santé</h3>
+        <p>Des analyses plus précises diminuent la nécessité de tests répétés, optimisant les ressources hospitalières et les dépenses de santé</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="3" id="Rita_av4">
+    <div class="popup">
+        <h3>Meilleure prévention</h3>
+        <p>La détection précoce réduit la mortalité en permettant des interventions à un stade plus curable des maladies</p>
+    </div>
+</div>
+
+
+<div class="hotspot-schematic" id="quantum-chamber" data-bg="3" data-id="schematic2" onclick="showSchematic('schematic2')">
+    <div class="schematic-preview">
+        <h3>Fonctionnemnt du capteur</h3>
+        <p>Cliquer pour ouvrir les schémas</p>
+    </div>
+</div>
+
+<div id="schematic2" class="schematic-full">
+    <div class="schematic-content">
+        <button class="nav-arrow left" onclick="previousStep('schematic2')">←</button>
+        
+        <div class="step-container">
+            <div class="step" data-step="1">
+                <img src="/rita/Rita_step1.jpg" alt="Step 1">
+                <p class="step-description">1- Le point quantique devient fluorescent après excitation par une source lumineuse</p>
+            </div>
+            <div class="step" data-step="2">
+                <img src="/rita/Rita_step2.png" alt="Step 2">
+                <p class="step-description">2- Si une molécule représentant un biomarqueur d’un type de cancer est présente dans le sang, le point quantique spécifique s’y attache par l’intermédiaire d’un ligand (atome(s) de liaison)</p>
+            </div>
+            <div class="step" data-step="3">
+                <img src="/rita/Rita_step3.jpg" alt="Step 3">
+                <p class="step-description">3- Plus les points quantiques se lient aux biomarqueurs, plus les signaux lumineux s’intensifient</p>
+            </div>
+            <div class="step" data-step="4">
+                <img src="/rita/Rita_step4.jpg" alt="Step 4">
+                <p class="step-description">4- Grâce au capteur quantique, le signal lumineux est converti en signal électrique exploitable par le personnel médical</p>
+            </div>
+            <div class="step" data-step="5">
+                <img src="/rita/Rita_step5.png" alt="Step 5">
+                <p class="step-description">Variation de l'intensité lumineuse avant et après la liaison</p>
+            </div>
+            <div class="step" data-step="6">
+                <img src="rita/Rita_step6.jpg" alt="Step 6">
+                <p class="step-description">Synthèse</p>
+            </div>
+        </div>
+
+        <button class="nav-arrow right" onclick="nextStep('schematic2')">→</button>
+    </div>
+    <button class="close-btn" onclick="hideSchematic('schematic2')">Close</button>
+</div>
+
+<!-- Hotspots for Background 4 -->
+<div class="hotspot-schematic" id="green-chamber" data-bg="4" data-id="schematic1" onclick="showSchematic('schematic1')">
+    <div class="schematic-preview">
+        <h3>Etapes</h3>
+        <p>Cliquer pour ouvrir les schémas</p>
+    </div>
+</div>
+
+<div id="schematic1" class="schematic-full">
+    <div class="schematic-content">
+        <div class="step-container">
+            <div class="step" data-step="1">
+                <img src="/aycha/schema gravio kr + piege+atomes.png" alt="Step 1">
+                <p class="step-description">Les éléments qui constituent le gravimètre</p>
+            </div>
+            <div class="step" data-step="1">
+                <img src="/aycha/Aycha_b1.jpg" alt="Step 2">
+                <p class="step-description">1- Sous l’effet de l’énergie magnétique, les atomes « tombent »</p>
+            </div>
+            <div class="step" data-step="2">
+                <img src="/aycha/Aycha_b2.jpg" alt="Step 3">
+                <p class="step-description">2- Ils se divisent en deux groupes selon leurs états énergétiques (représentés par le bleu et le rouge)</p>
+            </div>
+            <div class="step" data-step="3">
+                <img src="/aycha/Aycha_b3.jpg" alt="Step 4">
+                <p class="step-description">3- Les atomes subissent une autre impulsion qui va inverser leurs états énergétiques</p>
+            </div>
+            <div class="step" data-step="3">
+                <img src="/aycha/Aycha_b4.jpg" alt="Step 4">
+                <p class="step-description">4- Une dernière impulsion recombine finalement les deux groupes d’atomes</p>
+            </div>
+        </div>
+
+        <button class="nav-arrow left" onclick="previousStep('schematic1')">←</button>
+        <button class="nav-arrow right" onclick="nextStep('schematic1')">→</button>
+    </div>
+    <button class="close-btn" onclick="hideSchematic('schematic1')">Close</button>
+</div>
+
+<div class="hotspot" data-bg="4" id="avantage-1">
+    <div class="popup">
+        <h3>Analyse précise du sol</h3>
+        <p>Les gravimètres quantiques identifient les variations de densité sous les fondations pour prévenir tout risque d’effondrement</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="4" id="avantage-3">
+    <div class="popup">
+        <h3>Sécurisation des constructions</h3>
+        <p>Les hôpitaux peuvent être construits sur des bases solides grâce aux mesures gravitationnelles précises avant et après édification</p>
+    </div>
+</div>
+
+<div class="hotspot" data-bg="4" id="avantage-4">
+    <div class="popup">
+        <h3>Réduction des coûts d’entretien</h3>
+        <p>Une meilleure connaissance du terrain permet la construction d'infrastructures  hospitalières durables, minimisant les réparations nécessaires</p>
+    </div>
+</div>
+
+<div class="dark-blue-hotspot" data-bg="4" id="le_grav">
+    <div class="definition">
+        <h3>Gravimètre</h3>
+        <p>Un gravimètre absolu quantique (AQG) est un appareil de pointe qui exploite les technologies quantiques pour mesurer l'accélération gravitationnelle de la Terre avec une précision sans précédent</p>
+    </div>
+</div>
+
+</body>
+</html>
